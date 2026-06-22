@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MySmooth</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #1e1e1e;
+      --surface: #2d2d30;
+      --panel: #252a31;
+      --border: #3f3f46;
+      --text: #e0e0e0;
+      --muted: #b0b0b0;
+      --blue: #3275c2;
+      --blue-hover: #5992d4;
+      --warn: #dfa44a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    main {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: 0;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    a.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 8px 14px;
+      border-radius: 3px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      background: var(--blue);
+    }
+
+    a.button.secondary {
+      background: #3e3e42;
+    }
+
+    a.button:hover { background: var(--blue-hover); }
+    a.button.secondary:hover { background: #505055; }
+
+    section {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 14px;
+    }
+
+    .panel h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .notice {
+      background: #2f2a22;
+      border: 1px solid #8a6a2a;
+      color: var(--warn);
+    }
+
+    footer {
+      padding-top: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>MySmooth</h1>
+        <p>A simple Path of Exile utility for visual cleanup, readability, backups, and restoration.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/Dellinghausen/MySmooth-Release/releases/latest">Download</a>
+          <a class="button secondary" href="https://ko-fi.com/">Support the project</a>
+          <a class="button secondary" href="https://discord.com/">Discord</a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>What it does</h2>
+      <div class="grid">
+        <div class="panel">
+          <h3>Visual</h3>
+          <p>Map readability, atlas cleanup, modifier colors, and camera zoom.</p>
+        </div>
+        <div class="panel">
+          <h3>Light performance</h3>
+          <p>Lower-risk cleanup for rain, clouds, fog, shadows, lights, and environment effects.</p>
+        </div>
+        <div class="panel notice">
+          <h3>Heavy performance</h3>
+          <p>Optional aggressive cleanup that can hide skill effects. Use carefully.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Support model</h2>
+      <p>MySmooth is planned as a free beta with optional contributions. Contributions help cover hosting, signing, testing time, and compatibility work after game updates.</p>
+    </section>
+
+    <section>
+      <h2>Important</h2>
+      <p>MySmooth is unofficial and not affiliated with Grinding Gear Games. It modifies local game data and should be used at your own risk. Always restore originals or verify game files if something looks wrong.</p>
+    </section>
+
+    <footer>
+      <p>Remote manifest: <a href="./manifest.json">manifest.json</a></p>
+    </footer>
+  </main>
+</body>
+</html>
