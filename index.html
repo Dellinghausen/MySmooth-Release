@@ -135,6 +135,53 @@
       color: var(--warn);
     }
 
+    .download-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 18px;
+    }
+
+    .download-panel h2 {
+      margin-top: 0;
+    }
+
+    .download-panel p {
+      margin-bottom: 0;
+    }
+
+    a.button.primary-large {
+      min-height: 44px;
+      min-width: 190px;
+      padding: 11px 18px;
+      font-size: 15px;
+    }
+
+    .source-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .source-list li {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 12px;
+      color: var(--muted);
+    }
+
+    .source-list a {
+      color: var(--text);
+      font-weight: 700;
+    }
+
     footer {
       padding-top: 20px;
       color: var(--muted);
@@ -150,6 +197,15 @@
 
       .topbar {
         margin-top: 18px;
+      }
+
+      .download-panel {
+        display: block;
+      }
+
+      a.button.primary-large {
+        width: 100%;
+        margin-top: 16px;
       }
     }
   </style>
@@ -180,6 +236,16 @@
         </select>
       </div>
     </header>
+
+    <section>
+      <div class="download-panel">
+        <div>
+          <h2 data-i18n="downloadTitle"></h2>
+          <p data-i18n="downloadBody"></p>
+        </div>
+        <a class="button primary-large" href="https://github.com/Dellinghausen/MySmooth-Release/releases/latest" data-i18n="downloadPrimary"></a>
+      </div>
+    </section>
 
     <section>
       <h2 data-i18n="whatTitle"></h2>
@@ -225,6 +291,12 @@
     <section>
       <h2 data-i18n="importantTitle"></h2>
       <p data-i18n="importantBody"></p>
+      <h3 data-i18n="sourceTitle"></h3>
+      <ul class="source-list">
+        <li><a href="https://www.pathofexile.com/legal/terms-of-use-and-privacy-policy">Grinding Gear Games Terms of Use</a><br><span data-i18n="sourceGgg"></span></li>
+        <li><a href="https://help.steampowered.com/en/faqs/view/0C48-FCBD-DA71-93EB">Steam Verify integrity of game files</a><br><span data-i18n="sourceSteam"></span></li>
+        <li><a href="https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases">GitHub Releases</a><br><span data-i18n="sourceGitHub"></span></li>
+      </ul>
     </section>
 
     <footer>
@@ -236,9 +308,12 @@
     const translations = {
       "pt-BR": {
         subtitle: "Uma central simples para deixar Path of Exile mais leve, legivel e facil de restaurar.",
-        download: "Download",
+        download: "Baixar MySmooth",
         support: "Apoiar o projeto",
         language: "Idioma",
+        downloadTitle: "Baixar a versao mais recente",
+        downloadBody: "O download oficial fica nas Releases do GitHub. Baixe sempre pelo link abaixo para evitar arquivos modificados por terceiros.",
+        downloadPrimary: "Baixar MySmooth",
         whatTitle: "O que ele faz",
         visualTitle: "Visual",
         visualBody: "Mapa, atlas, cores de modificadores e camera afastada.",
@@ -257,13 +332,20 @@
         supportBody: "MySmooth esta planejado como beta gratuito com contribuicoes opcionais para ajudar em testes, compatibilidade e distribuicao.",
         importantTitle: "Importante",
         importantBody: "MySmooth e independente e nao e afiliado a Grinding Gear Games. Ele altera dados locais do jogo; use por sua conta e risco.",
+        sourceTitle: "Fontes e seguranca",
+        sourceGgg: "Consulte os termos oficiais da Grinding Gear Games antes de usar ferramentas que alteram arquivos locais do jogo.",
+        sourceSteam: "Se algo ficar errado, a Steam permite verificar a integridade dos arquivos e baixar novamente arquivos alterados ou corrompidos.",
+        sourceGitHub: "As Releases do GitHub sao o canal usado para publicar os executaveis oficiais do MySmooth.",
         manifest: "Manifesto remoto:"
       },
       en: {
         subtitle: "A simple hub to make Path of Exile lighter, more readable, and easy to restore.",
-        download: "Download",
+        download: "Download MySmooth",
         support: "Support the project",
         language: "Language",
+        downloadTitle: "Download the latest version",
+        downloadBody: "The official download is hosted on GitHub Releases. Always use the link below to avoid third-party modified files.",
+        downloadPrimary: "Download MySmooth",
         whatTitle: "What it does",
         visualTitle: "Visual",
         visualBody: "Map readability, atlas cleanup, modifier colors, and pulled-back camera.",
@@ -282,13 +364,20 @@
         supportBody: "MySmooth is planned as a free beta with optional contributions to help with testing, compatibility, and distribution.",
         importantTitle: "Important",
         importantBody: "MySmooth is independent and not affiliated with Grinding Gear Games. It modifies local game data; use it at your own risk.",
+        sourceTitle: "Sources and safety",
+        sourceGgg: "Check Grinding Gear Games' official terms before using tools that modify local game files.",
+        sourceSteam: "If something goes wrong, Steam can verify game file integrity and redownload changed or corrupted files.",
+        sourceGitHub: "GitHub Releases are the channel used to publish official MySmooth executables.",
         manifest: "Remote manifest:"
       },
       fr: {
         subtitle: "Un outil simple pour rendre Path of Exile plus leger, plus lisible et facile a restaurer.",
-        download: "Telecharger",
+        download: "Telecharger MySmooth",
         support: "Soutenir le projet",
         language: "Langue",
+        downloadTitle: "Telecharger la derniere version",
+        downloadBody: "Le telechargement officiel est publie dans les Releases GitHub. Utilisez toujours ce lien pour eviter les fichiers modifies par des tiers.",
+        downloadPrimary: "Telecharger MySmooth",
         whatTitle: "Fonction",
         visualTitle: "Visuel",
         visualBody: "Carte, atlas, couleurs des modificateurs et camera reculee.",
@@ -307,13 +396,20 @@
         supportBody: "MySmooth est prevu comme beta gratuite avec contributions optionnelles pour aider tests, compatibilite et distribution.",
         importantTitle: "Important",
         importantBody: "MySmooth est independant et non affilie a Grinding Gear Games. Il modifie les donnees locales du jeu; utilisez-le a vos risques.",
+        sourceTitle: "Sources et securite",
+        sourceGgg: "Consultez les conditions officielles de Grinding Gear Games avant d'utiliser des outils qui modifient les fichiers locaux du jeu.",
+        sourceSteam: "En cas de probleme, Steam peut verifier l'integrite des fichiers et retélécharger les fichiers modifies ou corrompus.",
+        sourceGitHub: "Les Releases GitHub sont le canal utilise pour publier les executables officiels de MySmooth.",
         manifest: "Manifeste distant:"
       },
       es: {
         subtitle: "Una herramienta simple para hacer Path of Exile mas ligero, legible y facil de restaurar.",
-        download: "Descargar",
+        download: "Descargar MySmooth",
         support: "Apoyar el proyecto",
         language: "Idioma",
+        downloadTitle: "Descargar la version mas reciente",
+        downloadBody: "La descarga oficial esta en GitHub Releases. Usa siempre el enlace de abajo para evitar archivos modificados por terceros.",
+        downloadPrimary: "Descargar MySmooth",
         whatTitle: "Que hace",
         visualTitle: "Visual",
         visualBody: "Mapa, atlas, colores de modificadores y camara alejada.",
@@ -332,13 +428,20 @@
         supportBody: "MySmooth esta planeado como beta gratuita con contribuciones opcionales para ayudar con pruebas, compatibilidad y distribucion.",
         importantTitle: "Importante",
         importantBody: "MySmooth es independiente y no esta afiliado a Grinding Gear Games. Modifica datos locales del juego; usalo bajo tu responsabilidad.",
+        sourceTitle: "Fuentes y seguridad",
+        sourceGgg: "Consulta los terminos oficiales de Grinding Gear Games antes de usar herramientas que modifican archivos locales del juego.",
+        sourceSteam: "Si algo sale mal, Steam puede verificar la integridad de los archivos y descargar de nuevo archivos modificados o corruptos.",
+        sourceGitHub: "GitHub Releases es el canal usado para publicar los ejecutables oficiales de MySmooth.",
         manifest: "Manifiesto remoto:"
       },
       ru: {
         subtitle: "Простая утилита, чтобы сделать Path of Exile легче, понятнее и проще для восстановления.",
-        download: "Скачать",
+        download: "Скачать MySmooth",
         support: "Поддержать проект",
         language: "Язык",
+        downloadTitle: "Скачать последнюю версию",
+        downloadBody: "Официальная загрузка находится в GitHub Releases. Используйте ссылку ниже, чтобы избежать измененных сторонних файлов.",
+        downloadPrimary: "Скачать MySmooth",
         whatTitle: "Что делает",
         visualTitle: "Визуально",
         visualBody: "Карта, атлас, цвета модификаторов и отдаленная камера.",
@@ -357,13 +460,20 @@
         supportBody: "MySmooth планируется как бесплатная бета с добровольной поддержкой для тестов, совместимости и распространения.",
         importantTitle: "Важно",
         importantBody: "MySmooth независим и не связан с Grinding Gear Games. Он изменяет локальные данные игры; используйте на свой риск.",
+        sourceTitle: "Источники и безопасность",
+        sourceGgg: "Ознакомьтесь с официальными условиями Grinding Gear Games перед использованием инструментов, изменяющих локальные файлы игры.",
+        sourceSteam: "Если что-то пойдет не так, Steam может проверить целостность файлов и заново загрузить измененные или поврежденные файлы.",
+        sourceGitHub: "GitHub Releases используется для публикации официальных исполняемых файлов MySmooth.",
         manifest: "Удаленный манифест:"
       },
       ko: {
         subtitle: "Path of Exile을 더 가볍고 읽기 쉽게 만들고 쉽게 복원하는 간단한 도구입니다.",
-        download: "다운로드",
+        download: "MySmooth 다운로드",
         support: "프로젝트 후원",
         language: "언어",
+        downloadTitle: "최신 버전 다운로드",
+        downloadBody: "공식 다운로드는 GitHub Releases에 있습니다. 타사에서 수정한 파일을 피하려면 아래 링크를 사용하세요.",
+        downloadPrimary: "MySmooth 다운로드",
         whatTitle: "기능",
         visualTitle: "시각",
         visualBody: "지도, 아틀라스, 모드 색상, 카메라 확대/축소를 정리합니다.",
@@ -382,13 +492,20 @@
         supportBody: "MySmooth는 무료 베타와 선택적 후원 모델로 계획되어 있으며 테스트, 호환성, 배포를 돕습니다.",
         importantTitle: "중요",
         importantBody: "MySmooth는 독립 도구이며 Grinding Gear Games와 관련이 없습니다. 로컬 게임 데이터를 수정하므로 본인 책임으로 사용하세요.",
+        sourceTitle: "출처 및 안전",
+        sourceGgg: "로컬 게임 파일을 수정하는 도구를 사용하기 전에 Grinding Gear Games의 공식 약관을 확인하세요.",
+        sourceSteam: "문제가 생기면 Steam에서 게임 파일 무결성을 확인하고 변경되었거나 손상된 파일을 다시 받을 수 있습니다.",
+        sourceGitHub: "GitHub Releases는 MySmooth 공식 실행 파일을 배포하는 채널입니다.",
         manifest: "원격 매니페스트:"
       },
       ja: {
         subtitle: "Path of Exileを軽く、見やすく、簡単に復元できるシンプルなツールです。",
-        download: "ダウンロード",
+        download: "MySmoothをダウンロード",
         support: "プロジェクトを支援",
         language: "言語",
+        downloadTitle: "最新バージョンをダウンロード",
+        downloadBody: "公式ダウンロードはGitHub Releasesにあります。第三者が変更したファイルを避けるため、下のリンクを使用してください。",
+        downloadPrimary: "MySmoothをダウンロード",
         whatTitle: "できること",
         visualTitle: "ビジュアル",
         visualBody: "マップ、アトラス、モッド色、カメラ距離を調整します。",
@@ -407,13 +524,20 @@
         supportBody: "MySmoothは無料ベータと任意の支援で、テスト、互換性、配布を支える予定です。",
         importantTitle: "重要",
         importantBody: "MySmoothは独立したツールで、Grinding Gear Gamesとは関係ありません。ローカルゲームデータを変更するため自己責任で使用してください。",
+        sourceTitle: "情報源と安全性",
+        sourceGgg: "ローカルゲームファイルを変更するツールを使う前に、Grinding Gear Gamesの公式規約を確認してください。",
+        sourceSteam: "問題が起きた場合、Steamでゲームファイルの整合性を確認し、変更または破損したファイルを再取得できます。",
+        sourceGitHub: "GitHub ReleasesはMySmooth公式実行ファイルの配布チャンネルです。",
         manifest: "リモートマニフェスト:"
       },
       "zh-CN": {
         subtitle: "一个简单工具，让 Path of Exile 更轻量、更清晰，并且便于恢复。",
-        download: "下载",
+        download: "下载 MySmooth",
         support: "支持项目",
         language: "语言",
+        downloadTitle: "下载最新版本",
+        downloadBody: "官方下载位于 GitHub Releases。请始终使用下面的链接，以避免第三方修改过的文件。",
+        downloadPrimary: "下载 MySmooth",
         whatTitle: "功能",
         visualTitle: "视觉",
         visualBody: "地图、异界图、词缀颜色和镜头距离调整。",
@@ -432,6 +556,10 @@
         supportBody: "MySmooth 计划作为免费测试版发布，并通过自愿支持帮助测试、兼容性和分发。",
         importantTitle: "重要",
         importantBody: "MySmooth 是独立工具，与 Grinding Gear Games 无关。它会修改本地游戏数据，请自行承担风险。",
+        sourceTitle: "来源和安全",
+        sourceGgg: "在使用会修改本地游戏文件的工具之前，请查看 Grinding Gear Games 的官方条款。",
+        sourceSteam: "如果出现问题，Steam 可以验证游戏文件完整性，并重新下载被修改或损坏的文件。",
+        sourceGitHub: "GitHub Releases 是发布 MySmooth 官方可执行文件的渠道。",
         manifest: "远程清单:"
       }
     };
