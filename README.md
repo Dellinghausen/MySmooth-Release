@@ -7,6 +7,7 @@ It contains:
 - The public website
 - The remote `manifest.json`
 - Public release downloads
+- Multilingual public copy for Portuguese, English, French, Spanish, Russian, Korean, Japanese, and Mandarin
 
 The application source code is kept in a private repository. This repository is intentionally limited to files needed by end users and by the app update/configuration flow.
 

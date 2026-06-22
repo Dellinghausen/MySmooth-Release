@@ -3,6 +3,16 @@
   "minimumAllowedVersion": "1.0.0",
   "mode": "free",
   "message": "MySmooth is currently available as a free beta. Please update if this version is no longer compatible with the current game patch.",
+  "messages": {
+    "pt-BR": "MySmooth esta disponivel como beta gratuito. Atualize se esta versao nao for mais compativel com o patch atual do jogo.",
+    "en": "MySmooth is currently available as a free beta. Please update if this version is no longer compatible with the current game patch.",
+    "fr": "MySmooth est disponible en beta gratuite. Mettez a jour si cette version n'est plus compatible avec le patch actuel du jeu.",
+    "es": "MySmooth esta disponible como beta gratuita. Actualiza si esta version ya no es compatible con el parche actual del juego.",
+    "ru": "MySmooth сейчас доступен как бесплатная бета. Обновите программу, если эта версия больше не совместима с текущим патчем игры.",
+    "ko": "MySmooth는 현재 무료 베타로 제공됩니다. 이 버전이 현재 게임 패치와 더 이상 호환되지 않으면 업데이트하세요.",
+    "ja": "MySmoothは現在無料ベータとして提供されています。このバージョンが現在のゲームパッチと互換性がなくなった場合は更新してください。",
+    "zh-CN": "MySmooth 目前作为免费测试版提供。如果此版本不再兼容当前游戏补丁，请更新。"
+  },
   "downloadUrl": "https://github.com/Dellinghausen/MySmooth-Release/releases/latest",
   "donateUrl": "https://ko-fi.com/",
   "supportUrl": "https://discord.com/",

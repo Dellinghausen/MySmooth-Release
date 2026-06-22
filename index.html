@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +36,7 @@
 
     header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 24px;
       padding-bottom: 24px;
@@ -52,6 +52,29 @@
     p {
       color: var(--muted);
       max-width: 70ch;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    label {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    select {
+      min-height: 32px;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
     }
 
     .actions {
@@ -117,6 +140,18 @@
       color: var(--muted);
       font-size: 13px;
     }
+
+    footer a { color: var(--text); }
+
+    @media (max-width: 720px) {
+      header {
+        display: block;
+      }
+
+      .topbar {
+        margin-top: 18px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -124,46 +159,313 @@
     <header>
       <div>
         <h1>MySmooth</h1>
-        <p>A simple Path of Exile utility for visual cleanup, readability, backups, and restoration.</p>
+        <p data-i18n="subtitle"></p>
         <div class="actions">
-          <a class="button" href="https://github.com/Dellinghausen/MySmooth-Release/releases/latest">Download</a>
-          <a class="button secondary" href="https://ko-fi.com/">Support the project</a>
+          <a class="button" href="https://github.com/Dellinghausen/MySmooth-Release/releases/latest" data-i18n="download"></a>
+          <a class="button secondary" href="https://ko-fi.com/" data-i18n="support"></a>
           <a class="button secondary" href="https://discord.com/">Discord</a>
         </div>
+      </div>
+      <div class="topbar">
+        <label for="language" data-i18n="language"></label>
+        <select id="language" aria-label="Language">
+          <option value="pt-BR">Português</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="ru">Русский</option>
+          <option value="ko">한국어</option>
+          <option value="ja">日本語</option>
+          <option value="zh-CN">中文</option>
+        </select>
       </div>
     </header>
 
     <section>
-      <h2>What it does</h2>
+      <h2 data-i18n="whatTitle"></h2>
       <div class="grid">
         <div class="panel">
-          <h3>Visual</h3>
-          <p>Map readability, atlas cleanup, modifier colors, and camera zoom.</p>
+          <h3 data-i18n="visualTitle"></h3>
+          <p data-i18n="visualBody"></p>
         </div>
         <div class="panel">
-          <h3>Light performance</h3>
-          <p>Lower-risk cleanup for rain, clouds, fog, shadows, lights, and environment effects.</p>
+          <h3 data-i18n="lightTitle"></h3>
+          <p data-i18n="lightBody"></p>
         </div>
         <div class="panel notice">
-          <h3>Heavy performance</h3>
-          <p>Optional aggressive cleanup that can hide skill effects. Use carefully.</p>
+          <h3 data-i18n="heavyTitle"></h3>
+          <p data-i18n="heavyBody"></p>
         </div>
       </div>
     </section>
 
     <section>
-      <h2>Support model</h2>
-      <p>MySmooth is planned as a free beta with optional contributions. Contributions help cover hosting, signing, testing time, and compatibility work after game updates.</p>
+      <h2 data-i18n="featuresTitle"></h2>
+      <div class="grid">
+        <div class="panel">
+          <h3 data-i18n="backupTitle"></h3>
+          <p data-i18n="backupBody"></p>
+        </div>
+        <div class="panel">
+          <h3 data-i18n="poeTitle"></h3>
+          <p data-i18n="poeBody"></p>
+        </div>
+        <div class="panel">
+          <h3 data-i18n="remoteTitle"></h3>
+          <p data-i18n="remoteBody"></p>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>Important</h2>
-      <p>MySmooth is unofficial and not affiliated with Grinding Gear Games. It modifies local game data and should be used at your own risk. Always restore originals or verify game files if something looks wrong.</p>
+      <h2 data-i18n="supportTitle"></h2>
+      <p data-i18n="supportBody"></p>
+    </section>
+
+    <section>
+      <h2 data-i18n="importantTitle"></h2>
+      <p data-i18n="importantBody"></p>
     </section>
 
     <footer>
-      <p>Remote manifest: <a href="./manifest.json">manifest.json</a></p>
+      <p><span data-i18n="manifest"></span> <a href="./manifest.json">manifest.json</a></p>
     </footer>
   </main>
+
+  <script>
+    const translations = {
+      "pt-BR": {
+        subtitle: "Uma central simples para deixar Path of Exile mais leve, legivel e facil de restaurar.",
+        download: "Download",
+        support: "Apoiar o projeto",
+        language: "Idioma",
+        whatTitle: "O que ele faz",
+        visualTitle: "Visual",
+        visualBody: "Mapa, atlas, cores de modificadores e camera afastada.",
+        lightTitle: "Desempenho leve",
+        lightBody: "Limpeza visual de menor risco para chuva, nuvens, nevoa, sombras, luzes e ambiente.",
+        heavyTitle: "Desempenho pesado",
+        heavyBody: "Limpeza agressiva opcional que pode esconder efeitos de skills. Use com cuidado.",
+        featuresTitle: "Funcionalidades",
+        backupTitle: "Backup e restauracao",
+        backupBody: "Cria backup local dos arquivos originais e restaura direto pelo app.",
+        poeTitle: "PoE 1 e PoE 2",
+        poeBody: "Selecione a pasta raiz do jogo; o MySmooth encontra os arquivos internos corretos.",
+        remoteTitle: "Manifesto remoto",
+        remoteBody: "Permite avisos de versao e controle de recursos sem trocar o executavel.",
+        supportTitle: "Modelo de apoio",
+        supportBody: "MySmooth esta planejado como beta gratuito com contribuicoes opcionais para ajudar em testes, compatibilidade e distribuicao.",
+        importantTitle: "Importante",
+        importantBody: "MySmooth e independente e nao e afiliado a Grinding Gear Games. Ele altera dados locais do jogo; use por sua conta e risco.",
+        manifest: "Manifesto remoto:"
+      },
+      en: {
+        subtitle: "A simple hub to make Path of Exile lighter, more readable, and easy to restore.",
+        download: "Download",
+        support: "Support the project",
+        language: "Language",
+        whatTitle: "What it does",
+        visualTitle: "Visual",
+        visualBody: "Map readability, atlas cleanup, modifier colors, and pulled-back camera.",
+        lightTitle: "Light performance",
+        lightBody: "Lower-risk visual cleanup for rain, clouds, fog, shadows, lights, and environment effects.",
+        heavyTitle: "Heavy performance",
+        heavyBody: "Optional aggressive cleanup that can hide skill effects. Use carefully.",
+        featuresTitle: "Features",
+        backupTitle: "Backup and restore",
+        backupBody: "Creates a local backup of original files and restores them directly from the app.",
+        poeTitle: "PoE 1 and PoE 2",
+        poeBody: "Select the game root folder; MySmooth finds the correct internal files.",
+        remoteTitle: "Remote manifest",
+        remoteBody: "Allows version notices and feature control without replacing the executable.",
+        supportTitle: "Support model",
+        supportBody: "MySmooth is planned as a free beta with optional contributions to help with testing, compatibility, and distribution.",
+        importantTitle: "Important",
+        importantBody: "MySmooth is independent and not affiliated with Grinding Gear Games. It modifies local game data; use it at your own risk.",
+        manifest: "Remote manifest:"
+      },
+      fr: {
+        subtitle: "Un outil simple pour rendre Path of Exile plus leger, plus lisible et facile a restaurer.",
+        download: "Telecharger",
+        support: "Soutenir le projet",
+        language: "Langue",
+        whatTitle: "Fonction",
+        visualTitle: "Visuel",
+        visualBody: "Carte, atlas, couleurs des modificateurs et camera reculee.",
+        lightTitle: "Performance legere",
+        lightBody: "Nettoyage visuel a faible risque pour pluie, nuages, brouillard, ombres, lumieres et environnement.",
+        heavyTitle: "Performance lourde",
+        heavyBody: "Nettoyage agressif optionnel pouvant masquer les effets de competences. A utiliser avec prudence.",
+        featuresTitle: "Fonctionnalites",
+        backupTitle: "Sauvegarde et restauration",
+        backupBody: "Cree une sauvegarde locale des fichiers originaux et les restaure depuis l'application.",
+        poeTitle: "PoE 1 et PoE 2",
+        poeBody: "Selectionnez le dossier racine du jeu; MySmooth trouve les bons fichiers internes.",
+        remoteTitle: "Manifeste distant",
+        remoteBody: "Permet les avis de version et le controle des fonctions sans remplacer l'executable.",
+        supportTitle: "Modele de soutien",
+        supportBody: "MySmooth est prevu comme beta gratuite avec contributions optionnelles pour aider tests, compatibilite et distribution.",
+        importantTitle: "Important",
+        importantBody: "MySmooth est independant et non affilie a Grinding Gear Games. Il modifie les donnees locales du jeu; utilisez-le a vos risques.",
+        manifest: "Manifeste distant:"
+      },
+      es: {
+        subtitle: "Una herramienta simple para hacer Path of Exile mas ligero, legible y facil de restaurar.",
+        download: "Descargar",
+        support: "Apoyar el proyecto",
+        language: "Idioma",
+        whatTitle: "Que hace",
+        visualTitle: "Visual",
+        visualBody: "Mapa, atlas, colores de modificadores y camara alejada.",
+        lightTitle: "Rendimiento ligero",
+        lightBody: "Limpieza visual de menor riesgo para lluvia, nubes, niebla, sombras, luces y ambiente.",
+        heavyTitle: "Rendimiento pesado",
+        heavyBody: "Limpieza agresiva opcional que puede ocultar efectos de habilidades. Usar con cuidado.",
+        featuresTitle: "Funciones",
+        backupTitle: "Copia y restauracion",
+        backupBody: "Crea una copia local de los archivos originales y restaura desde la app.",
+        poeTitle: "PoE 1 y PoE 2",
+        poeBody: "Selecciona la carpeta raiz del juego; MySmooth encuentra los archivos internos correctos.",
+        remoteTitle: "Manifiesto remoto",
+        remoteBody: "Permite avisos de version y control de funciones sin cambiar el ejecutable.",
+        supportTitle: "Modelo de apoyo",
+        supportBody: "MySmooth esta planeado como beta gratuita con contribuciones opcionales para ayudar con pruebas, compatibilidad y distribucion.",
+        importantTitle: "Importante",
+        importantBody: "MySmooth es independiente y no esta afiliado a Grinding Gear Games. Modifica datos locales del juego; usalo bajo tu responsabilidad.",
+        manifest: "Manifiesto remoto:"
+      },
+      ru: {
+        subtitle: "Простая утилита, чтобы сделать Path of Exile легче, понятнее и проще для восстановления.",
+        download: "Скачать",
+        support: "Поддержать проект",
+        language: "Язык",
+        whatTitle: "Что делает",
+        visualTitle: "Визуально",
+        visualBody: "Карта, атлас, цвета модификаторов и отдаленная камера.",
+        lightTitle: "Легкая производительность",
+        lightBody: "Менее рискованная очистка дождя, облаков, тумана, теней, света и окружения.",
+        heavyTitle: "Сильная производительность",
+        heavyBody: "Агрессивная очистка может скрывать эффекты навыков. Используйте осторожно.",
+        featuresTitle: "Возможности",
+        backupTitle: "Резервная копия",
+        backupBody: "Создает локальную копию оригинальных файлов и восстанавливает их из приложения.",
+        poeTitle: "PoE 1 и PoE 2",
+        poeBody: "Выберите корневую папку игры; MySmooth найдет нужные внутренние файлы.",
+        remoteTitle: "Удаленный манифест",
+        remoteBody: "Позволяет показывать версии и управлять функциями без замены exe-файла.",
+        supportTitle: "Модель поддержки",
+        supportBody: "MySmooth планируется как бесплатная бета с добровольной поддержкой для тестов, совместимости и распространения.",
+        importantTitle: "Важно",
+        importantBody: "MySmooth независим и не связан с Grinding Gear Games. Он изменяет локальные данные игры; используйте на свой риск.",
+        manifest: "Удаленный манифест:"
+      },
+      ko: {
+        subtitle: "Path of Exile을 더 가볍고 읽기 쉽게 만들고 쉽게 복원하는 간단한 도구입니다.",
+        download: "다운로드",
+        support: "프로젝트 후원",
+        language: "언어",
+        whatTitle: "기능",
+        visualTitle: "시각",
+        visualBody: "지도, 아틀라스, 모드 색상, 카메라 확대/축소를 정리합니다.",
+        lightTitle: "가벼운 성능",
+        lightBody: "비, 구름, 안개, 그림자, 조명, 환경 효과를 비교적 안전하게 줄입니다.",
+        heavyTitle: "강한 성능",
+        heavyBody: "스킬 효과가 보이지 않을 수 있는 강한 정리 옵션입니다. 주의해서 사용하세요.",
+        featuresTitle: "주요 기능",
+        backupTitle: "백업과 복원",
+        backupBody: "원본 파일을 로컬에 백업하고 앱에서 바로 복원합니다.",
+        poeTitle: "PoE 1 및 PoE 2",
+        poeBody: "게임 루트 폴더를 선택하면 MySmooth가 필요한 내부 파일을 찾습니다.",
+        remoteTitle: "원격 매니페스트",
+        remoteBody: "실행 파일 교체 없이 버전 안내와 기능 제어를 할 수 있습니다.",
+        supportTitle: "지원 방식",
+        supportBody: "MySmooth는 무료 베타와 선택적 후원 모델로 계획되어 있으며 테스트, 호환성, 배포를 돕습니다.",
+        importantTitle: "중요",
+        importantBody: "MySmooth는 독립 도구이며 Grinding Gear Games와 관련이 없습니다. 로컬 게임 데이터를 수정하므로 본인 책임으로 사용하세요.",
+        manifest: "원격 매니페스트:"
+      },
+      ja: {
+        subtitle: "Path of Exileを軽く、見やすく、簡単に復元できるシンプルなツールです。",
+        download: "ダウンロード",
+        support: "プロジェクトを支援",
+        language: "言語",
+        whatTitle: "できること",
+        visualTitle: "ビジュアル",
+        visualBody: "マップ、アトラス、モッド色、カメラ距離を調整します。",
+        lightTitle: "軽めの性能調整",
+        lightBody: "雨、雲、霧、影、光、環境効果を比較的安全に軽くします。",
+        heavyTitle: "重めの性能調整",
+        heavyBody: "スキル効果が見えなくなる場合がある強い調整です。注意して使用してください。",
+        featuresTitle: "機能",
+        backupTitle: "バックアップと復元",
+        backupBody: "元ファイルをローカルに保存し、アプリから直接復元できます。",
+        poeTitle: "PoE 1 と PoE 2",
+        poeBody: "ゲームのルートフォルダを選ぶと、MySmoothが必要な内部ファイルを見つけます。",
+        remoteTitle: "リモートマニフェスト",
+        remoteBody: "実行ファイルを置き換えずにバージョン通知や機能制御ができます。",
+        supportTitle: "サポートモデル",
+        supportBody: "MySmoothは無料ベータと任意の支援で、テスト、互換性、配布を支える予定です。",
+        importantTitle: "重要",
+        importantBody: "MySmoothは独立したツールで、Grinding Gear Gamesとは関係ありません。ローカルゲームデータを変更するため自己責任で使用してください。",
+        manifest: "リモートマニフェスト:"
+      },
+      "zh-CN": {
+        subtitle: "一个简单工具，让 Path of Exile 更轻量、更清晰，并且便于恢复。",
+        download: "下载",
+        support: "支持项目",
+        language: "语言",
+        whatTitle: "功能",
+        visualTitle: "视觉",
+        visualBody: "地图、异界图、词缀颜色和镜头距离调整。",
+        lightTitle: "轻量性能",
+        lightBody: "较低风险地减少雨、云、雾、阴影、光照和环境效果。",
+        heavyTitle: "重度性能",
+        heavyBody: "更激进的清理，可能隐藏技能效果。请谨慎使用。",
+        featuresTitle: "主要功能",
+        backupTitle: "备份和恢复",
+        backupBody: "本地备份原始文件，并可直接在应用中恢复。",
+        poeTitle: "PoE 1 和 PoE 2",
+        poeBody: "选择游戏根目录后，MySmooth 会找到正确的内部文件。",
+        remoteTitle: "远程清单",
+        remoteBody: "无需替换可执行文件即可进行版本提示和功能控制。",
+        supportTitle: "支持方式",
+        supportBody: "MySmooth 计划作为免费测试版发布，并通过自愿支持帮助测试、兼容性和分发。",
+        importantTitle: "重要",
+        importantBody: "MySmooth 是独立工具，与 Grinding Gear Games 无关。它会修改本地游戏数据，请自行承担风险。",
+        manifest: "远程清单:"
+      }
+    };
+
+    const select = document.getElementById("language");
+    const fallback = "pt-BR";
+
+    function normalizeLanguage(language) {
+      const value = (language || "").toLowerCase();
+      if (value.startsWith("pt")) return "pt-BR";
+      if (value.startsWith("fr")) return "fr";
+      if (value.startsWith("es")) return "es";
+      if (value.startsWith("ru")) return "ru";
+      if (value.startsWith("ko")) return "ko";
+      if (value.startsWith("ja")) return "ja";
+      if (value.startsWith("zh")) return "zh-CN";
+      if (value.startsWith("en")) return "en";
+      return fallback;
+    }
+
+    function applyLanguage(language) {
+      const key = translations[language] ? language : fallback;
+      const strings = translations[key];
+      document.documentElement.lang = key;
+      select.value = key;
+      localStorage.setItem("mysmooth-language", key);
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        node.textContent = strings[node.dataset.i18n] || "";
+      });
+    }
+
+    const saved = localStorage.getItem("mysmooth-language");
+    applyLanguage(saved || normalizeLanguage(navigator.language));
+    select.addEventListener("change", () => applyLanguage(select.value));
+  </script>
 </body>
 </html>
